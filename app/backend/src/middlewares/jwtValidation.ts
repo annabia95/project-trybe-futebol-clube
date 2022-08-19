@@ -2,12 +2,12 @@ import * as jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import { IUser } from '../interfaces/userInterface';
 
-const secret = 'trybetfc';
+const secret = process.env.JWT_TOKEN || 'jwt_secret';
 
 const generateToken = async (payload: IUser) => {
   const token = jwt.sign(payload, secret, {
-    expiresIn: '2d',
     algorithm: 'HS256',
+    expiresIn: '7d',
   });
   return token;
 };

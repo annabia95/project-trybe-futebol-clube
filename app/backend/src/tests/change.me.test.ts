@@ -4,7 +4,7 @@ import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 
 import { app } from '../app';
-import Example from '../database/models/ExampleModel';
+import User from '../database/models/users';
 
 import { Response } from 'superagent';
 
@@ -12,34 +12,54 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Seu teste', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
+/* const userModel = {
+  id: 1,
+  username: 'Admin',
+  role: 'admin',
+  email: 'admin@admin.com',
+  password: 'secret_admin',
+}; */
 
-  // let chaiHttpResponse: Response;
-
-  // before(async () => {
-  //   sinon
-  //     .stub(Example, "findOne")
-  //     .resolves({
-  //       ...<Seu mock>
-  //     } as Example);
-  // });
-
-  // after(()=>{
-  //   (Example.findOne as sinon.SinonStub).restore();
-  // })
-
-  // it('...', async () => {
-  //   chaiHttpResponse = await chai
-  //      .request(app)
-  //      ...
-
-  //   expect(...)
-  // });
-
-  it('Seu sub-teste', () => {
-    expect(false).to.be.eq(true);
+  describe('Seu teste', () => {
+    let chaiHttpResponse: Response;
+  
+/*     before(async () => {
+      sinon
+        .stub(User, 'findOne')
+        .resolves({
+          ...userModel
+        } as User);
+    });
+ 
+   after(()=>{
+     (User.findOne as sinon.SinonStub).restore();
+   })
+ */
+    it('Verifica o login com email e password corretos', async () => {
+      chaiHttpResponse = await chai
+        .request(app)
+        .post('/login')
+        .send({ email: 'admin@admin.com', password: 'secret_admin' });
+  
+      expect(chaiHttpResponse.status).to.be.equal(200);
+    });
+  
+    it('Verifica se é possível fazer login sem a senha', async () => {
+      chaiHttpResponse = await chai
+        .request(app)
+        .post('/login')
+        .send({ email: 'admin@admin.com' });
+      expect(chaiHttpResponse.status).to.be.equal(400);
+      expect(chaiHttpResponse.body).to.be.equal({ message: 'All fields must be filled' });
+    });
+  
+    it('Verifica se é possível fazer login sem o email', async () => {
+      chaiHttpResponse = await chai
+        .request(app)
+        .post('/login')
+        .send({ password: 'secret_admin' });
+      expect(chaiHttpResponse.status).to.be.equal(400);
+      expect(chaiHttpResponse.body).to.be.equal({ message: 'All fields must be filled' });
+    });
   });
-});
+

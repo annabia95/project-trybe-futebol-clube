@@ -1,19 +1,15 @@
-import { IUserPayload } from '../interfaces/payloadInterface';
 import Users from '../database/models/users';
 import { generateToken } from '../middlewares/jwtValidation';
+import { IUserPayload } from '../interfaces/payloadInterface';
 
 const userService = async (payload: IUserPayload) => {
   const loginUser = await Users.findOne({ where: { email: payload.email } });
+  if (!loginUser) return null;
+  const { id, username, email, role } = loginUser;
 
-  if (!loginUser) throw new Error('usuário não encontrado');
+  const token = await generateToken({ id, username, email, role });
 
-  const { id, username, role, email } = loginUser;
-
-  const token = await generateToken({ id, username, role, email });
-
-  return {
-    token,
-  };
+  return token;
 };
 
 export default userService;
