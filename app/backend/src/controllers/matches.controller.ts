@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { getAllMatches, getAllMatchesInProgress } from '../services/matches.service';
+import { getAllMatches, getAllMatchesInProgress, createMatch } from '../services/matches.service';
 
-const getMatchesInProgress = async (req: Request, res: Response) => {
+export const getMatchesInProgress = async (req: Request, res: Response) => {
   const { inProgress } = req.query;
   let matches;
 
@@ -16,4 +16,8 @@ const getMatchesInProgress = async (req: Request, res: Response) => {
   return res.status(200).json(matches);
 };
 
-export default getMatchesInProgress;
+export const createMatches = async (req: Request, res: Response) => {
+  const match = req.body;
+  const newMatch = await createMatch(match);
+  return res.status(201).json(newMatch);
+};
