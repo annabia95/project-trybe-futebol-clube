@@ -43,3 +43,27 @@ export const createMatch = async (obj: IMatches) => {
     inProgress,
   };
 };
+
+export const finishMatches = async (id: number) => {
+  const result = await Matches.update({
+    inProgress: false,
+  }, {
+    where: {
+      id,
+    },
+  });
+  return result;
+};
+
+export const updateMatches = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
+  const result = await Matches.update({
+    homeTeamGoals,
+    awayTeamGoals,
+  }, {
+    where: {
+      id,
+    },
+  });
+
+  return result;
+};
