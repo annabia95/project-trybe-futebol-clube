@@ -22,4 +22,12 @@ describe('Testes para /leaderboard', () => {
 
     expect(chaiHttpResponse.status).to.be.equal(200);
   });
+
+  it('Verifica se retorna o placar dos times de "fora"', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .get('/leaderboard/away')
+
+    expect(chaiHttpResponse.status).to.be.equal(200);
+  });
 });
