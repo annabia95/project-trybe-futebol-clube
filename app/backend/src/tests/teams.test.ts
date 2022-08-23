@@ -22,4 +22,16 @@ describe('Testes para /teams', () => {
 
     expect(chaiHttpResponse.status).to.be.equal(200);
   });
+
+  it('Verifica se retorna o time pelo id', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .get('/teams/1')
+
+    expect(chaiHttpResponse.status).to.be.equal(200);
+    expect(chaiHttpResponse.body).to.be.eql({
+      id: 1,
+      teamName: "Avaí/Kindermann"
+    })
+  });
 });
