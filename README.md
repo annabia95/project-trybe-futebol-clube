@@ -13,11 +13,23 @@ Para adicionar uma partida é necessário ter um token, portanto a pessoa dever�
 Existe um relacionamento entre as tabelas teams e matches para fazer as atualizações das partidas. O diagrama relacional pode ser 
 visualizado a seguir.
 
-## Banco de Dados - TFC
+## Banco de Dados e Layout 
 
  Diagrama de Entidade-Relacionamento - TFC        
 :-------------------------:|
 ![Screeshot](./images/tfc-schema.png)  |
+
+Login Page        
+:-------------------------:|
+![Screeshot](./images/login-page.png)  |
+
+Matches Page            |  Matches Page    
+:-------------------------:|:-------------------------:
+![Screeshot](./images/partidas-page-1.png)  |  ![Screenshot](./images/partidas-page-2.png)
+
+Leaderboard Page        
+:-------------------------:|
+![Screeshot](./images/classificacao-page.png)  |
 
 ---
 
@@ -69,7 +81,7 @@ Após cada um dos passos, haverá um exemplo do comando a ser digitado para faze
 
 Neste projeto, desenvolvi as seguintes habilidades:
 
- - Realizar a dockerização dos apps, network, volume e compose;;
+ - Realizar a dockerização dos apps, network, volume e compose;
  - Modelar dados com MySQL através do Sequelize;
  - Criar e associar tabelas usando models do sequelize;
  - Construir uma API REST com endpoints para consumir os models criados;
