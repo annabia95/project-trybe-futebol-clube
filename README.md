@@ -91,6 +91,7 @@ Neste projeto, desenvolvi as seguintes habilidades:
 
  
  ## Referências
+ [Documentação Oficial - Sequelize](https://sequelize.org/docs/v6/)<br>
  [Documentação Oficial - TypeScript](https://www.typescriptlang.org/docs/)<br>
  [Documentação Oficial - Express](https://expressjs.com/pt-br/4x/api.html)<br>
  [Documentação Express - Rotas](https://expressjs.com/pt-br/guide/routing.html)<br>
