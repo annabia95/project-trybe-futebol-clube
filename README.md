@@ -85,7 +85,9 @@ Neste projeto, desenvolvi as seguintes habilidades:
  - Modelar dados com MySQL através do Sequelize;
  - Criar e associar tabelas usando models do sequelize;
  - Construir uma API REST com endpoints para consumir os models criados;
- - Construir um CRUD com TypeScript, utilizando ORM.
+ - Construir um CRUD com TypeScript, utilizando ORM;
+ - Validar e autenticar as requisições do usuário, utilizando middlewares de manipulação de erros e JWT;
+ - Aplicar a metodolodia TDD (Test Driven Development), utilizando Mocha, Chai e Sinon.
 
  
  ## Referências
@@ -94,6 +96,7 @@ Neste projeto, desenvolvi as seguintes habilidades:
  [Documentação Express - Rotas](https://expressjs.com/pt-br/guide/routing.html)<br>
  [Chai Assertion Library](https://www.chaijs.com/api/bdd/)<br>
  [Stubs - Sinon.JS](https://sinonjs.org/releases/v14/stubs/)<br>
+ [Mocha](https://mochajs.org/)<br>
  [JWT](https://jwt.io/)<br>
  [Conventional Commits](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)<br>
 
